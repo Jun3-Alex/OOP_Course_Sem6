@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class StudentSort implements StudentSortService{
+public class StudentSort extends StudentGroupQueryService implements StudentSortService{
     private final StudentGroup studentGroup;
 
     public StudentSort(StudentGroup studentGroup) {
@@ -29,5 +29,15 @@ public class StudentSort implements StudentSortService{
         List<Student> students = new ArrayList<>(studentGroup.getStudents());
         students.sort(new UserComparator<Student>());
         return students;
+    }
+
+    @Override
+    Student findStudent(String firstName, String secondName) {
+        return null;
+    }
+
+    @Override
+    List<Student> sortStudents(StudentGroup studentGroup) {
+        return null;
     }
 }

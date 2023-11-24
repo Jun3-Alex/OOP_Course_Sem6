@@ -11,7 +11,7 @@ import java.util.List;
  * Применяем принцип единственной ответственности SRP,
  * разбив класс StudentGroupService на отдельные классы*/
 
-public class StudentSearch {
+public class StudentSearch extends StudentGroupQueryService{
     private final StudentGroup studentGroup;
 
     public StudentSearch(StudentGroup studentGroup) {
@@ -37,5 +37,15 @@ public class StudentSearch {
             throw new IllegalStateException("Найдено более одного студента с указанными именем и фамилией");
         }
         return result.get(0);
+    }
+
+    @Override
+    Student findStudent(String firstName, String secondName) {
+        return null;
+    }
+
+    @Override
+    List<Student> sortStudents(StudentGroup studentGroup) {
+        return null;
     }
 }
