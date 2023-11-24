@@ -4,6 +4,7 @@ import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.Student;
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.Teacher;
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.service.StudentGroupService;
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.service.StudentService;
+import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.service.StudentSortService;
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.view.StudentView;
 
 import java.time.LocalDate;
@@ -13,7 +14,8 @@ import java.util.List;
 public class StudentController implements UserController<Student>{
 
     private final StudentService dataService = new StudentService();
-    private final StudentGroupService studentGroupService = new StudentGroupService();
+    private StudentSortService sortService;
+    private final StudentGroupService studentGroupService = new StudentGroupService(sortService);
     private final StudentView studentView = new StudentView();
 
     @Override
