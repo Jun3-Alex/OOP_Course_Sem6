@@ -1,6 +1,6 @@
-package ru.gb.oseminar.controller;
+package OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.controller;
 
-import ru.gb.oseminar.data.User;
+import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.User;
 
 import java.time.LocalDate;
 

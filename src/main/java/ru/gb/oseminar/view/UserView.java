@@ -1,6 +1,6 @@
-package ru.gb.oseminar.view;
+package OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.view;
 
-import ru.gb.oseminar.data.User;
+import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.User;
 
 import java.util.List;
 

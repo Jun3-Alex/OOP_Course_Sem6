@@ -1,24 +1,21 @@
 package OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.service;
 
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.Student;
-import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.UserComparator;
 import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.StudentGroup;
-import OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data.Teacher;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroupService {
-    private StudentGroup studentGroup;
+/*Класс для поиска студента.
+ * Применяем принцип единственной ответственности SRP,
+ * разбив класс StudentGroupService на отдельные классы*/
 
-    public void createStudentGroup(Teacher teacher, List<Student> students) {
-        this.studentGroup = new StudentGroup(teacher, students);
-    }
+public class StudentSearch {
+    private final StudentGroup studentGroup;
 
-    public StudentGroup getStudentGroup() {
-        return studentGroup;
+    public StudentSearch(StudentGroup studentGroup) {
+        this.studentGroup = studentGroup;
     }
 
     public Student getStudentFromStudentGroup(String firstName, String secondName){
@@ -27,11 +24,11 @@ public class StudentGroupService {
         while (iterator.hasNext()){
             Student student = iterator.next();
             if(student.getFirstName().equalsIgnoreCase(firstName)
-               && student.getSecondName().equalsIgnoreCase(secondName)){
+                    && student.getSecondName().equalsIgnoreCase(secondName)){
                 result.add(student);
             }
         }
-        if(result.size() == 0){
+        if(result.isEmpty()){
             throw new IllegalStateException(
                     String.format("Студент с именем %s и фамилией %s не найден", firstName, secondName)
             );
@@ -40,17 +37,5 @@ public class StudentGroupService {
             throw new IllegalStateException("Найдено более одного студента с указанными именем и фамилией");
         }
         return result.get(0);
-    }
-
-    public List<Student> getSortedStudentGroup(){
-        List<Student> students = new ArrayList<>(studentGroup.getStudents());
-        Collections.sort(students);
-        return students;
-    }
-
-    public List<Student> getSortedByFIOStudentGroup(){
-        List<Student> students = new ArrayList<>(studentGroup.getStudents());
-        students.sort(new UserComparator<Student>());
-        return students;
     }
 }

@@ -1,4 +1,4 @@
-package ru.gb.oseminar.data;
+package OOP_Course.Lesson6.OOPSeminar4.src.main.java.ru.gb.oseminar.data;
 
 import java.util.Comparator;
 
